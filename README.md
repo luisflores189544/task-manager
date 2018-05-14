@@ -1,3 +1,3 @@
 # Task Manager Application
 
-![img][task-manager.gif]
+![img](task-manager.gif)
