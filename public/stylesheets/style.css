@@ -1,0 +1,97 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(164, 167, 168, 0.527);
+}
+
+a {
+  color: rgb(81, 82, 85);
+}
+
+
+
+.header {
+  box-shadow: 0 0 1px rgba(0,0,0,0.25);
+  transition: background-color 0.3s ease-in-out;
+  background-color: #fff;
+  top: 0px;
+  width: 100%;
+  height: 80px;
+  padding: 10px 60px;
+  position: fixed;
+  z-index: 10000;
+}
+
+@media screen and (max-width: 480px) {
+  .header nav ul {
+      background-color: rgb(255, 255, 255);
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      
+  }
+  .header {
+    height: 60px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #task-tabs li {
+    width: 50% !important;
+  }
+}
+
+.task-body {
+  background-color:white;
+  padding-top: 25px;
+  padding-bottom: 40px;
+  height: 65%;
+}
+
+#task-tabs li .active {
+  background-color: rgb(223, 229, 235);
+}
+#task-tabs li a:hover {
+  background-color: rgb(144, 164, 184);
+}
+
+#task-tabs li a {
+  border-radius: 0;
+  border-color: rgb(225, 231, 233);
+  height: 60px;
+}
+#task-tabs li {
+  width: 300px;
+  
+}
+
+.x1-form-select {
+  border-radius: 0;
+  
+}
+.x1-form-config {
+  border-radius: 0;
+
+}
+.x1-form-config:focus {
+  border-color: lightgray;
+  box-shadow: 0 0 10px rgb(236, 125, 35);
+}
+.x1-box {
+  background-color: lightgray;
+  padding:20px 10px 20px 10px;
+}
+.x1-textbox {
+  min-height: 150px;
+}
+
+.x1-footer {
+  background-color:rgba(14, 138, 240, 0.678); 
+  height: 30px;
+}
+.x1-div {
+  min-height: 400px;
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}

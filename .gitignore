@@ -1,0 +1,12 @@
+# Environments
+.env
+.venv
+venv/
+ENV/
+
+# Visual Studio Code Templates
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extension.json

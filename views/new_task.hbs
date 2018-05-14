@@ -1,0 +1,121 @@
+<div class="" id="new-task">
+    <div class="pb-2">
+    <h3>{{ title }}</h3>
+    </div>
+
+    <div class="col-lg-12 align-center task-body">
+        <ul class="nav nav-tabs" id="task-tabs" role="tablist">
+            <li class="nav-item text-center">
+                
+                <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">
+                    <span class="oi oi-pencil"></span><br>
+                    Details
+                </a>
+                
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link" id="discussion-tab" data-toggle="tab" href="#discussion" role="tab" aria-controls="discussion" aria-selected="false">
+                    <span class="oi oi-comment-square"></span><br>
+                    Discussion
+                </a>
+            </li>
+        </ul>
+        <form method="POST" id="task" action="">
+        {{!-- Grouping of all Tabs --}}
+        <div class="tab-content" id="myTabContent">
+            {{!-- Tab Details --}}
+            
+                <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+                    <div class="container pt-4">
+                            <div class="form-group col-sm-12 col-lg-2">
+                                <label for="ownerInput">Owner</label>
+                                <select class="form-control x1-form-config" id="ownerInput" name="ownerName">
+                                    <option v-for="name in owners">[% name %]</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-12">
+                                <label for="taskNameInput">Task Title</label>
+                                <input class="form-control x1-form-config" type="input" id="taskNameInput" name="taskTitle" placeholder="Task Name">
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <label for="statusInput">Status</label>
+                                    <select class="form-control x1-form-config" id="statusInput" name="statusType">
+                                        <option v-for="type in status_type">[% type %]</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="priorityInput">Priority</label>
+                                    <select class="form-control x1-form-config" id="priorityInput" name="priorityType">
+                                        <option v-for="type in priority_type">[% type %]</option>
+                                    </select>
+                                </div>
+                                <div class="col-2 ">
+                                    <label for="estTimeInput">Est. Time</label>
+                                    <input class="form-control x1-form-config" type="number" id="estTimeInput" name="estTime">
+                                </div>
+                                <div class="col-2 ">
+                                    <label for="timeSpendInput">Time Spend</label>
+                                    <input class="form-control x1-form-config" type="number" id="timeSpendInput" name="timeSpend">
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-12 pt-4 pd-3">
+                                <div class="x1-box">
+                                    <div class="row">
+                                        <label for="descInput">Description</label>
+                                        <div class="ml-auto">
+                                            <a v-on:click="descToggle" href="#">
+                                                <span v-bind:class="expandObject"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <textarea class="form-control x1-form-config x1-textbox" id="descInput" name="description">
+                                    </textarea>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            
+            {{!-- Tab Discussion --}}
+            <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
+                <div class="container pt-4 x1-div">
+                    
+                        <div class="form-group col-sm-12">
+                            <div class="row">
+                                <div class="ml-auto">
+                                    <button type="button" v-on:click="addDiscussion()" class="x1-form-config btn btn-info">
+                                        Add Discussion 
+                                        <span class="oi oi-plus"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12">
+
+                            <add-discussion
+                                v-for="n in discussion_count" 
+                                v-bind:desc-toggle="descToggle">
+                            </add-discussion>
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <hr>
+            <div class="row">
+                <div class="ml-auto">
+                    <button type="submit" class="btn btn-info x1-form-config" name="save">Save</button>
+                </div>
+                
+            </div>
+            
+        </div>
+
+</form>
+    </div>
+</div>
